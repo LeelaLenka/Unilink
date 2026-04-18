@@ -1,0 +1,484 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  @apply bg-ink-950 text-slate-100 antialiased font-sans;
+  background-color: var(--bg-page) !important;
+  color: var(--text-primary) !important;
+  font-weight: 400 !important;
+}
+
+:root {
+  /* Backgrounds */
+  --bg-page:           #F0F2F5;
+  --bg-card:           #FFFFFF;
+  --bg-input:          #EEF1F7;
+  --bg-navbar:         #F7F7F8;
+  --bg-footer:         #1B2B4B;
+  --bg-footer-bar:     #162338;
+  --bg-sidebar:        #1B2B4B;
+  --bg-sidebar-active: #2E4A7A;
+  --bg-sidebar-hover:  #243D6B;
+  --bg-overlay:        rgba(15, 25, 45, 0.55);
+  --bg-accent-warm:    #D4C5A9;
+  --bg-panel:          #E8EDF4;
+
+  /* Brand colors */
+  --color-primary:     #1B2B4B;
+  --color-accent:      #2E4A7A;
+  --color-cta:         #4E7C59;
+
+  /* Status colors — muted */
+  --color-success:     #4E7C59;
+  --color-error:       #8B3A3A;
+  --color-warning:     #8B6914;
+  --color-info:        #2E4A7A;
+  --bg-success:        #EAF2EC;
+  --bg-error:          #F5EAEA;
+  --bg-warning:        #F5EFE6;
+  --bg-info:           #E8EDF4;
+
+  /* Borders */
+  --border-color:      #D0D4DC;
+
+  /* Text */
+  --text-primary:      #1B2B4B;
+  --text-accent:       #2E4A7A;
+  --text-secondary:    #6A7A8F;
+  --text-hint:         #9AABB8;
+  --text-on-dark:      #E8EDF4;
+  --text-on-btn:       #FFFFFF;
+  --text-footer-muted: #7A8FA0;
+  --text-footer-links: #9AABB8;
+
+  /* Badges */
+  --badge-bg:           #DDE5F0;
+  --badge-text:         #2E4A7A;
+  --badge-success-bg:   #D6EAD8;
+  --badge-success-text: #2E5E35;
+  --badge-error-bg:     #F0D8D8;
+  --badge-error-text:   #8B3A3A;
+
+  /* Warning banner */
+  --warning-bg:        #F5EFE6;
+  --warning-text:      #7A5C38;
+  --warning-link:      #2E4A7A;
+}
+
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display;
+    font-weight: 500 !important;
+    color: var(--color-primary) !important;
+  }
+}
+
+.font-semibold,
+.font-bold,
+.font-extrabold {
+  font-weight: 500 !important;
+}
+
+[class*="bg-gradient-to-"] {
+  background-image: none !important;
+}
+
+[class*="shadow"],
+.shadow,
+.shadow-sm,
+.shadow-md,
+.shadow-lg,
+.shadow-xl,
+.shadow-2xl {
+  box-shadow: none !important;
+}
+
+.card {
+  @apply rounded-2xl;
+  background-color: var(--bg-card) !important;
+  border: 0.5px solid var(--border-color) !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+}
+
+.panel {
+  @apply rounded-2xl p-4;
+  background-color: var(--bg-card) !important;
+  border: 0.5px solid var(--border-color) !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+}
+
+/* Enhancing number weights inside cards */
+.card .text-2xl,
+.card .text-3xl,
+.card .text-4xl {
+  font-weight: 500 !important;
+  color: var(--text-primary) !important;
+}
+
+.chip {
+  @apply rounded-full px-2 py-1 text-xs;
+  background-color: var(--badge-bg) !important;
+  border: 0.5px solid var(--border-color) !important;
+  color: var(--badge-text) !important;
+  font-weight: 500 !important;
+}
+
+.btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2 text-sm font-medium transition;
+}
+
+.btn-primary {
+  @apply btn;
+  background-color: var(--color-accent) !important;
+  color: var(--text-on-btn) !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 8px !important;
+  font-weight: 500 !important;
+}
+.btn-primary:hover {
+  background-color: var(--color-accent) !important;
+}
+
+button.bg-crimson-600 {
+  background-color: #4A70A9 !important;
+  color: #FFFFFF !important;
+}
+button.bg-crimson-600:hover {
+  background-color: #355A8A !important;
+}
+
+.btn-ghost {
+  @apply btn;
+  background-color: transparent !important;
+  border: 0.5px solid var(--border-color) !important;
+  color: var(--color-accent) !important;
+  border-radius: 8px !important;
+  box-shadow: none !important;
+  font-weight: 500 !important;
+}
+.btn-ghost:hover {
+  background-color: transparent !important;
+}
+
+.input {
+  @apply w-full rounded-xl px-3 py-2 text-sm outline-none transition-all duration-200;
+  background-color: var(--bg-input) !important;
+  border: 0.5px solid var(--border-color) !important;
+  border-radius: 8px !important;
+  color: var(--text-primary) !important;
+  box-shadow: none !important;
+}
+.input::placeholder {
+  color: var(--text-hint) !important;
+}
+.input:focus {
+  border-color: var(--color-accent) !important;
+  box-shadow: 0 0 0 2px #2E4A7A40 !important;
+}
+
+/* Login page: Slate & Sage matte palette (colors only, layout untouched) */
+.unilink-login .card {
+  background: var(--bg-card) !important;
+  border: 0.5px solid var(--border-color) !important;
+  border-radius: 16px !important;
+  box-shadow: none !important;
+}
+.unilink-login .input {
+  background: var(--bg-input) !important;
+  border: 0.5px solid var(--border-color) !important;
+  border-radius: 8px !important;
+  color: var(--text-primary) !important;
+  box-shadow: none !important;
+}
+.unilink-login .input::placeholder {
+  color: var(--text-hint) !important;
+}
+.unilink-login .input:focus {
+  border-color: var(--color-accent) !important;
+  box-shadow: 0 0 0 2px #2E4A7A40 !important;
+}
+.unilink-login label {
+  color: var(--text-secondary) !important;
+  font-weight: 400 !important;
+}
+.unilink-login .btn-primary {
+  background: var(--color-accent) !important;
+  color: #FFFFFF !important;
+  border: none !important;
+  border-radius: 8px !important;
+  box-shadow: none !important;
+  font-weight: 500 !important;
+}
+.unilink-login .btn-ghost {
+  background: var(--bg-card) !important;
+  border: 0.5px solid var(--border-color) !important;
+  color: var(--text-primary) !important;
+  border-radius: 8px !important;
+  box-shadow: none !important;
+  font-weight: 500 !important;
+}
+.unilink-login .btn-ghost:hover {
+  background: var(--bg-card) !important;
+}
+.unilink-login h2 {
+  color: var(--color-primary) !important;
+  font-weight: 500 !important;
+}
+.unilink-login .crimson-gradient {
+  color: var(--color-accent) !important;
+  -webkit-text-fill-color: var(--color-accent) !important;
+}
+.unilink-login p,
+.unilink-login .text-slate-300 {
+  color: var(--text-secondary) !important;
+  font-weight: 400 !important;
+}
+.unilink-login a.text-crimson-200,
+.unilink-login a.hover\:text-crimson-100:hover,
+.unilink-login a.text-slate-300,
+.unilink-login a.hover\:text-white:hover {
+  color: var(--color-accent) !important;
+}
+.unilink-login .text-slate-600,
+.unilink-login .text-slate-500 {
+  color: var(--text-hint) !important;
+}
+.unilink-login .border-white\/10 {
+  border-color: var(--border-color) !important;
+}
+.unilink-login .border-white\/20 {
+  border-color: var(--border-color) !important;
+}
+.unilink-login .text-slate-400 {
+  color: var(--text-secondary) !important;
+}
+
+/* OR divider */
+.unilink-login .border-t.border-white\/10 {
+  border-color: var(--border-color) !important;
+}
+.unilink-login .mt-6.flex.items-center.gap-3.text-sm.text-slate-500 {
+  color: var(--text-hint) !important;
+}
+
+/* Checkbox accent */
+.unilink-login input[type="checkbox"] {
+  accent-color: var(--color-accent);
+}
+
+/* Right panel: flat fills, no gradients/shadows */
+.unilink-login-panel {
+  background: var(--bg-panel) !important;
+  border: 0.5px solid var(--border-color) !important;
+  box-shadow: none !important;
+}
+.unilink-login-panel .bg-gradient-to-br,
+.unilink-login-panel .bg-gradient-to-t {
+  background: transparent !important;
+}
+.unilink-login-panel .unilink-campus-illustration {
+  opacity: 0.035;
+}
+.unilink-login-panel::before {
+  content: "";
+  position: absolute;
+  inset: -20% -10% auto auto;
+  width: 420px;
+  height: 420px;
+  background: var(--bg-accent-warm);
+  opacity: 0.35;
+  border-radius: 9999px;
+  pointer-events: none;
+}
+.unilink-login-panel .inline-flex.rounded-full {
+  background: var(--badge-bg) !important;
+  color: var(--color-accent) !important;
+  border: 0.5px solid var(--border-color) !important;
+  font-weight: 500 !important;
+}
+.unilink-login-panel h3 {
+  color: var(--color-primary) !important;
+  font-weight: 500 !important;
+}
+.unilink-login-panel p {
+  color: var(--text-secondary) !important;
+  font-weight: 400 !important;
+}
+.unilink-login-panel .text-2xl {
+  color: var(--color-primary) !important;
+  font-weight: 500 !important;
+}
+.unilink-login-panel .text-xs.text-slate-400 {
+  color: var(--text-footer-muted) !important;
+}
+
+.unilink-right-logo-watermark {
+  opacity: 0.20;
+}
+
+label {
+  color: var(--text-secondary) !important;
+  font-weight: 400 !important;
+}
+
+/* Default link styling (do not override button-styled links). */
+a:not([class*="text-"]):not([class*="text-["]),
+a:visited:not([class*="text-"]):not([class*="text-["]) {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* Sidebar Specific Overrides */
+aside.h-screen {
+  background-color: var(--bg-sidebar) !important;
+  background-image: none !important;
+  border-right: 0.5px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+aside.h-screen .text-slate-300,
+aside.h-screen .text-slate-400,
+aside.h-screen .text-slate-500 {
+  color: rgba(232, 237, 244, 0.7) !important;
+}
+
+aside.h-screen .text-white {
+  color: var(--text-on-dark) !important;
+}
+
+aside.h-screen .text-slate-500 {
+  color: var(--text-hint) !important;
+}
+
+aside.h-screen a.bg-crimson-500\/20,
+aside.h-screen .ring-crimson-400\/25,
+aside.h-screen a[class*="bg-crimson"] {
+  background-color: var(--bg-sidebar-active) !important;
+  color: #FFFFFF !important;
+  box-shadow: none !important;
+  border: none !important;
+  outline: none !important;
+  border-radius: 8px !important;
+}
+
+aside.h-screen a.hover\:bg-white\/\[0\.05\]:hover {
+  background-color: var(--bg-sidebar-hover) !important;
+  color: var(--text-on-btn) !important;
+}
+
+aside.h-screen .border-white\/10 {
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Right Sidebar Strict Enhancements */
+aside:not(.h-screen) {
+  background: transparent !important;
+  display: flex !important;
+  flex-direction: column !important;
+  row-gap: 20px !important;
+}
+
+aside:not(.h-screen) > div {
+  background-color: var(--bg-card) !important;
+  border: 0.5px solid var(--border-color) !important;
+  border-radius: 12px !important;
+  padding: 16px !important;
+  box-shadow: none !important;
+  margin-top: 0 !important;
+}
+
+/* Headers */
+.brand-gradient {
+  background: none !important;
+  color: var(--color-primary) !important;
+  -webkit-text-fill-color: var(--color-primary) !important;
+}
+
+.crimson-gradient {
+  background: none !important;
+  color: var(--color-accent) !important;
+  -webkit-text-fill-color: var(--color-accent) !important;
+}
+
+/* Background Gradients */
+.hidden.lg\:block .absolute.inset-0.bg-gradient-to-br {
+  background: transparent !important;
+}
+.hidden.lg\:block .absolute.inset-0.bg-gradient-to-t {
+  background: transparent !important;
+}
+
+.hidden.lg\:block .text-white {
+  color: var(--text-primary) !important;
+}
+.hidden.lg\:block .text-slate-300,
+.hidden.lg\:block .text-slate-400 {
+  color: var(--text-secondary) !important;
+}
+
+.subtle-grid {
+  background-image: none !important;
+}
+
+.unilink-campus-illustration {
+  background-repeat: no-repeat;
+  background-position: right 45% center;
+  background-size: 120% auto;
+  opacity: 0.045;
+  filter: none;
+  background-image: none !important;
+}
+
+.unilink-right-logo-watermark {
+  pointer-events: none;
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: min(560px, 80%);
+  opacity: 0.20;
+  background-image: url("/unilink-logo.png");
+}
+
+/* Global Subtle Border Colors */
+.border-white\/10 {
+  border-color: var(--border-color) !important;
+}
+.border-white\/20 {
+  border-color: var(--border-color) !important;
+}
+
+/* Global text color normalization (app is light; sidebar/footer override locally) */
+.text-white {
+  color: var(--text-primary) !important;
+}
+.text-black {
+  color: var(--text-primary) !important;
+}
+.text-slate-100,
+.text-slate-200 {
+  color: var(--text-primary) !important;
+}
+.text-slate-300,
+.text-slate-400 {
+  color: var(--text-secondary) !important;
+}
+.text-slate-500,
+.text-slate-600 {
+  color: var(--text-hint) !important;
+}
