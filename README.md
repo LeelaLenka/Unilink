@@ -165,8 +165,8 @@ The **assets** folder contains:
 
 **Lenka Leela Krishna Sai Bharat**
 
-- GitHub: https://github.com/yourusername
-- LinkedIn: https://linkedin.com/in/yourprofile
+- GitHub: https://github.com/LeelaLenka
+- LinkedIn: https://www.linkedin.com/in/lenka-leela-krishna-sai-bharat-83444933b?utm_source=share_via&utm_content=profile&utm_medium=member_android
 
 ---
 
